@@ -1,0 +1,65 @@
+{% extends 'flatpages/default.html' %}
+{% load i18n %}
+{% load custom_filters %}
+{% load custom_tags %}
+
+{% block title %} {% trans "Posts" %} {% endblock title %}
+
+{% block content %}
+
+<h3 class="content-subhead">
+  {% trans "Filtered" %} {{ filter.qs|length }} {% trans "posts on query" %}:
+  <span>{{ name }}</span>
+</h3>
+
+{% if name.id %}
+    {% if is_subscribed %}
+        <div class="subscribe">
+          <strong>
+            {% trans "You are already subscribed to" %} <em>{{ name }}</em>. {% trans "Unsubscribe?" %}
+            {% if subscription_object == 'category_subscription' %}
+                  </strong>
+                  <a href="{% url 'unsub_cat' name.id %}">
+                    <button class="pure-button button-success" style="border-radius: 15px">
+                      <i class="bi bi-bookmark-plus"></i>
+                      {% trans "Unsubscribe" %}
+                    </button>
+                  </a>
+            {% endif %}
+            {% if subscription_object == 'author_subscription' %}
+                    </strong>
+                    <a href="{% url 'news:unsub_author' name.id %}">
+                    <button class="pure-button button-success" style="border-radius: 15px">
+                      <i class="bi bi-bookmark-plus"></i>
+                      {% trans "Unsubscribe" %}
+                    </button>
+                  </a>
+            {% endif %}
+        </div>
+    {% else %}
+        <div class="subscribe">
+          <strong>
+            {% trans "Do you want to subscribe to" %} <em>{{ name }}</em>?
+            {% if subscription_object == 'category_subscription' %}
+                  </strong>
+                  <a href="{% url 'sub_cat' name.id %}">
+                    <button class="pure-button button-success" style="border-radius: 15px">
+                      <i class="bi bi-bookmark-plus"></i>
+                      {% trans "Subscribe" %}
+                    </button>
+                  </a>
+            {% endif %}
+            {% if subscription_object == 'author_subscription' %}
+                    </strong>
+                    <a href="{% url 'news:sub_author' name.id %}">
+                    <button class="pure-button button-success" style="border-radius: 15px">
+                      <i class="bi bi-bookmark-plus"></i>
+                      {% trans "Subscribe" %}
+                    </button>
+                  </a>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endif %}
+
+{% endblock content %}

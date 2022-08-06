@@ -1,0 +1,22 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+News
+{% endblock title %}
+
+{% block content %}
+{{ news | length }}
+<h1>{{ new.title }}</h1>
+<h2>{{ new.text | censor }}</h2>
+<h3>{{ new.dateCreation|date:'d M Y' }}</h3>
+
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="submit" value="subscribe"/>
+</form>
+{% endblock content %}
+
+

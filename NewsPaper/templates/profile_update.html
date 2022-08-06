@@ -1,0 +1,29 @@
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <br>
+    <h3>Управление подписками</h3>
+    <br>
+        {% for cat in category %}
+        <tr>
+                {% if cat.name in user_category %}
+                   <td align="left">
+                        {{ cat.name }}
+                        <a href=""><u>Отписаться</u></a>
+                    </td>
+                {% else %}
+                   <td align="left">
+                        {{ cat.name }}
+                        <a href=""><u>Подписаться</u></a>
+                    </td>
+                {% endif %}
+        </tr>
+    <br>
+        {% endfor %}
+    <br>
+    <input type="submit" value="Обновить профиль">
+    {% if is_not_author %}
+        <button> <a href="upgrade/"> Хочу стать автором</a> </button>
+    {% endif %}
+    <button><a href="{% url 'account_logout' %}">Выйти</a></button>
+</form>v
