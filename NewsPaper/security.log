@@ -1,0 +1,5 @@
+ERROR 2022-07-26 19:04:42,747 exception Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+ERROR 2022-07-26 19:07:29,254 exception Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+ERROR 2022-07-26 19:08:27,692 exception Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+ERROR 2022-07-26 19:09:12,057 exception Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+ERROR 2022-07-26 19:11:04,105 exception Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
